@@ -33,6 +33,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: crccheck/hello-world
+        image: 300699012348.dkr.ecr.eu-west-2.amazonaws.com/eks-repo:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
