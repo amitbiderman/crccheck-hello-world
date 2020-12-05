@@ -1,12 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  namespace: hello-world-namespace
+  labels:
+    app: hello-world
+spec:
+  type: ClusterIP
+  selector:
+    app: hello-world
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-deployment
+  namespace: hello-world-namespace
+  labels:
+    app: hello-world
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: hello-world
-  replicas: 3
   template:
     metadata:
       labels:
